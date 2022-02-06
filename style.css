@@ -13,8 +13,9 @@ html {
     padding: 20px 20px;
     display: flex;
     flex-wrap: wrap;
-    gap: 60px 80px;
+    gap: 40px 60px;
     min-width: 300px;
+    align-content: flex-start;
 }
 
 /* HEADER */
@@ -52,12 +53,15 @@ header > div {
 /* MAIN */
 main {
     height: calc(100vh - 140px);
+    overflow-y: scroll;
     background-color: #ddd;
 }
 
 .icon {
     width: 220px;
     height: 100px;
+    /* width: calc((100vw - 280px) / 5);
+    height: calc((100vw - 280px) / 10); */
     background-color: #fff;
     border-radius: 10px;
     display: flex;
@@ -71,6 +75,19 @@ main {
 .icon span {
     text-transform: uppercase;
     font-size: 1rem;
+    color: #000;
     margin-top: 5px;
+}
+
+.icon.orange {
+    color: orange;
+}
+
+.icon.green {
+    color: green;
+}
+
+.icon.blue {
+    color: blue;
 }
 /* FINE MAIN */
