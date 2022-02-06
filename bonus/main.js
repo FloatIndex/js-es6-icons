@@ -120,8 +120,9 @@ assignColor(icons);
 const container = document.querySelector('.container');
 drawIcons(container, icons);
 
+// creo l'elemento select 
+const select = assignSelectOptions();
 // filtro le icone per tipo, aggiornando dinamicamente l'elenco in base al valore della select
-const select = document.getElementById('type-selector');
 select.addEventListener('change', function(){
 	if (this.value == '') {
 		drawIcons(container, icons);
@@ -140,7 +141,32 @@ select.addEventListener('change', function(){
 
 
 
+
+
+
 /* FUNZIONI */
+
+// assegno alla select un'option per ogni icon.type
+function assignSelectOptions() {
+	let select = document.getElementById('type-selector');
+	const options = []
+	let currentOption = `<option value="">All</option>`;
+	options.push(currentOption);
+
+	icons.forEach(icon => {
+		if(icon.type != currentOption) {
+			currentOption = icon.type;
+			options.push(`<option value="${currentOption}">${currentOption}</option>`);
+		}
+	});
+
+	options.forEach(option => {
+		select.innerHTML += option;
+	});
+
+	return select;
+}
+
 
 // assegna un colore per tipo di icona
 function assignColor(array) {
