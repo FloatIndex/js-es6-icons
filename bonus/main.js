@@ -149,19 +149,14 @@ select.addEventListener('change', function(){
 // assegno alla select un'option per ogni icon.type
 function assignSelectOptions() {
 	let select = document.getElementById('type-selector');
-	const options = []
-	let currentOption = `<option value="">All</option>`;
-	options.push(currentOption);
+	select.innerHTML = `<option value="">All</option>`;
+	let currentOption = '';
 
 	icons.forEach(icon => {
 		if(icon.type != currentOption) {
 			currentOption = icon.type;
-			options.push(`<option value="${currentOption}">${currentOption}</option>`);
+			select.innerHTML += `<option value="${currentOption}">${currentOption}</option>`
 		}
-	});
-
-	options.forEach(option => {
-		select.innerHTML += option;
 	});
 
 	return select;
